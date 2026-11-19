@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shayan Gerami’s publications, research, and projects in computer vision, efficient machine learning, and edge AI.">
     <title>Shayan Gerami</title>
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,108 +21,188 @@
 
         .header {
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
             gap: 20px;
         }
 
-        img {
+        .header img {
             width: 150px;
+            max-width: 100%;
             border-radius: 10px;
         }
 
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 18px;
+            list-style: none;
+            padding-left: 0;
+        }
+
         a {
-            color: #0073e6;
-            text-decoration: none;
+            color: #005bb5;
+            text-underline-offset: 0.15em;
         }
 
         a:hover {
-            text-decoration: underline;
+            text-decoration-thickness: 2px;
         }
 
         ul {
             padding-left: 20px;
         }
+
+        .entries > li + li {
+            margin-top: 1rem;
+        }
+
+        .entries p {
+            margin: 0.25rem 0;
+        }
+
+        .entries h3 {
+            font-size: 1rem;
+            margin: 0;
+        }
     </style>
 </head>
 <body>
-
-    <!-- Header -->
-    <div class="header">
-        <img src="profile2.jpg" alt="Your Photo">
+    <header class="header">
+        <img src="profile2.jpg" alt="Shayan Gerami">
         <div>
             <h1>Shayan Gerami</h1>
-            <p><b>Email:</b> sgera@uic.edu</p>
-            <p>
-                <a href="Resume_main_Tycho.pdf">Resume</a> |
-                <a href="https://scholar.google.com/citations?user=-kxpL88AAAAJ&hl=en&oi=ao">Scholar</a> |
-                <a href="https://github.com/shayangerami">GitHub</a> |
-                <a href="https://linkedin.com/in/shane-gerami">LinkedIn</a>
-            </p>
+            <p><a href="mailto:sgera@uic.edu">sgera@uic.edu</a></p>
+            <nav aria-label="Profile links">
+                <ul>
+                    <li><a href="Resume_main_Tycho.pdf">Résumé</a></li>
+                    <li><a href="https://scholar.google.com/citations?user=-kxpL88AAAAJ&amp;hl=en&amp;oi=ao">Scholar</a></li>
+                    <li><a href="https://github.com/shayangerami">GitHub</a></li>
+                    <li><a href="https://linkedin.com/in/shane-gerami">LinkedIn</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
+    </header>
 
-    <!-- Bio -->
-    <h2>About Me</h2>
-        I am an undergraduate student at University of Illinois Chicago (UIC). 
-        I work as a research assistant at 
-        <a href="https://ruic.lab.uic.edu/" target="_blank">RUIC Lab</a>. 
-        My research focuses on hardware-friendly and robust computer vision, 
-        and efficient edge AI systems.
-</p>
+    <main>
+        <section aria-labelledby="about">
+            <h2 id="about">About Me</h2>
+            <p>I am an undergraduate student at the University of Illinois Chicago (UIC) and a research assistant in the
+                <a href="https://ruic.lab.uic.edu/">RUIC Lab</a>. I study how to make computer vision models more efficient and robust,
+                from selective inference for video transformers to intelligent sensing on embedded devices.
+                I also work on diffusion and flow models that adapt to new information during generation.</p>
+        </section>
 
-    <!-- Research Interests -->
-    <h2>Research Interests</h2>
-    <ul>
-        <li>Computer Vision</li>
-        <li>Efficient Deep Learning</li>
-        <li>Edge / Embedded AI</li>
-        <li>Robustness & Adversarial ML</li>
-    </ul>
+        <section aria-labelledby="interests">
+            <h2 id="interests">Research Interests</h2>
+            <ul>
+                <li>Computer vision and video understanding</li>
+                <li>Efficient deep learning and edge AI</li>
+                <li>Generative modeling and multimodal learning</li>
+                <li>Robustness and adversarial machine learning</li>
+            </ul>
+        </section>
 
-    <!-- Publications -->
-    <h2>Publications</h2>
+        <section aria-labelledby="manuscripts">
+            <h2 id="manuscripts">Manuscripts Under Review</h2>
+            <ul class="entries">
+                <li>
+                    <h3>ReVisiT: Revisiting Only What Changed for Efficient Video Vision Transformers</h3>
+                    <p>Uses changes between frames to decide which tokens to recompute and reuses cached activations elsewhere,
+                        without retraining. On ImageNet VID, ViTDet-B reached 82.27% mAP@0.5 versus 82.37% with dense inference,
+                        with 69.3% fewer estimated backbone operations. The study also evaluates pose estimation and video object segmentation.</p>
+                </li>
+                <li>
+                    <h3>What a Late Condition Misses: Correcting Mid-Trajectory Condition Changes</h3>
+                    <p>Missed-Guidance Correction (MGC) is a training-free method that uses a few probes of earlier sampler states to
+                        adapt diffusion and flow models to new conditions mid-generation. With two probes, concept insertion success
+                        rose from 41.4% with direct switching to 71.0% on Stable Diffusion 3.5, averaged across switch times for prompt
+                        pairs where restarting succeeded. The study also evaluates delayed lip-video conditioning for speech enhancement.</p>
+                </li>
+                <li>
+                    <h3>SCENE: A Sparse Capacitive Event-Driven Near-Sensor Engine for Frame-Compatible Object Detection</h3>
+                    <p>Reconstructs conventional video frames from sparse updates so existing object detectors can process them.
+                        On ImageNet-VidVRD, one configuration reached 83% mAP@0.5 with 56% lower modeled data transfer than full-frame processing.</p>
+                </li>
+            </ul>
+        </section>
 
-    <h3>First-Author</h3>
-    <ul>
-        <li>
-            <b>ENTRY: Spiking Event Reasoning for Selective Deep Inference in Event-Driven Edge Vision”</b><br>
-            <b>Shayan Gerami</b>, et al.<br>
-            ACM Proceedings of the Great Lakes Symposium on VLSI (GLSVLSI), 2026 
-        </li>
-        
-        <li>
-            <b>ROAST: Reverse-training Offset Attack on Spatial Sampling Topologies</b><br>
-            <b>Shayan Gerami</b>, et al.<br>
-            ACM/IEEE Design Automation Conference (DAC), 2026 (Late Breaking Results)
-        </li>
-        
-        <li>
-            <b>Pixel-Wise Intelligence: Heatmap-Guided Adaptive LBP for In-Sensor Vision Processing</b><br>
-            <b>Shayan Gerami</b>, et al.<br>
-            IEEE Journal on Emerging and Selected Topics in Circuits and Systems (JETCAS), 2026 
-        </li>
-    
-        <li>
-            <b>SunSift: Solar-Powered Intelligent Sensing Through Informative Sample Selection</b><br>
-            <b>Shayan Gerami</b>, et al.<br>
-            IEEE International Conference on Autonomic Computing and Self-Organizing Systems (ACSOS), 2025
-        </li>
-    </ul>
-    
-    <h3>Co-Authored</h3>
-    <ul>
-        <li>
-            <b>ARISE: Adaptive Resource-aware Intelligent Sensing Enabling Intermittent Learning</b><br>
-            Shayan Gerami, et al.<br>
-            IEEE Transactions on Circuits and Systems for Artificial Intelligence (TCAS-AI), 2025
-        </li>
-    
-        <li>
-            <b>BISen: A Robust Framework for Efficient CNN Inference on Battery-Free Intelligent Sensory Nodes</b><br>
-            Shayan Gerami, et al.<br>
-            IEEE Transactions on Computers (TC), 2025
-        </li>
-    </ul>
+        <section aria-labelledby="publications">
+            <h2 id="publications">Publications</h2>
+            <h3>First-Author Publications</h3>
+            <ul class="entries">
+                <li>
+                    <strong><a href="https://doi.org/10.1145/3787109.3816393">SENTRY: Spiking Event Reasoning for Selective Deep Inference in Event-Driven Edge Vision</a></strong><br>
+                    <strong>Shayan Gerami</strong>, Sepehr Tabrizchi, Shaahin Angizi, Ramtin Zand, and Arman Roohi<br>
+                    <cite>ACM Great Lakes Symposium on VLSI (GLSVLSI)</cite>, 2026
+                    <p>Filters event-camera spikes by region to trigger deep inference selectively. In the evaluated surveillance
+                        sequence, transmission precision rose from 41% to 67% versus global spike-rate gating.</p>
+                </li>
+                <li>
+                    <strong><a href="https://doi.org/10.1145/3770743.3807710">Late Breaking Results: ROAST: Reverse-training Offset Attack on Spatial Sampling Topologies</a></strong><br>
+                    <strong>Shayan Gerami</strong>, Sepehr Tabrizchi, Shaahin Angizi, and Arman Roohi<br>
+                    <cite>ACM/IEEE Design Automation Conference (DAC)</cite>, 2026
+                    <p>Evaluates the robustness of learned spatial sampling offsets in lightweight vision networks.</p>
+                </li>
+                <li>
+                    <strong><a href="https://doi.org/10.1109/JETCAS.2026.3713822">Pixel-Wise Intelligence: Heatmap-Guided Adaptive LBP for In-Sensor Vision Processing</a></strong><br>
+                    <strong>Shayan Gerami</strong>, Sepehr Tabrizchi, Hong Ding, Shaahin Angizi, and Arman Roohi<br>
+                    <cite>IEEE Journal on Emerging and Selected Topics in Circuits and Systems (JETCAS)</cite>, 2026
+                    <p>Uses heatmap-guided masking and adaptive sampling to focus LBPNet computation on informative image regions.
+                        <a href="https://github.com/shayangerami/HeatMapLBPNET">HeatMapLBPNet code</a></p>
+                </li>
+                <li>
+                    <strong><a href="https://doi.org/10.1109/ACSOS-C66519.2025.00057">SunSift: Solar-Powered Intelligent Sensing Through Informative Sample Selection</a></strong><br>
+                    <strong>Shayan Gerami</strong>, Sepehr Tabrizchi, Omer Kurkutlu, Rebati Raman Gaire, and Arman Roohi<br>
+                    <cite>IEEE International Conference on Autonomic Computing and Self-Organizing Systems Companion (ACSOS-C)</cite>, 2025
+                    <p>Runs sample selection and lightweight vision inference on a solar-powered microcontroller.
+                        Presented in the Poster &amp; Demo Track in Tokyo.
+                        <a href="https://github.com/shayangerami/SunSift">SunSift code</a></p>
+                </li>
+            </ul>
 
+            <h3>Co-Authored Publications</h3>
+            <ul class="entries">
+                <li>
+                    <strong><a href="https://doi.org/10.1109/TCASAI.2026.3653699">ARISE: Adaptive Resource-Aware Intelligent SEnsing Enabling Intermittent Learning</a></strong><br>
+                    Sepehr Tabrizchi, Rebati Raman Gaire, Neeraj Solanki, <strong>Shayan Gerami</strong>,
+                    Ali Shafiee Sarvestani, David Z. Pan, and Arman Roohi<br>
+                    <cite>IEEE Transactions on Circuits and Systems for Artificial Intelligence (TCASAI)</cite>, 2026
+                </li>
+                <li>
+                    <strong><a href="https://doi.org/10.1109/TC.2026.3669818">BISen: A Robust Framework for Efficient CNN Inference on Battery-Free Intelligent Sensory Nodes</a></strong><br>
+                    Sepehr Tabrizchi, <strong>Shayan Gerami</strong>, Justin Feng, Nader Sehatbakhsh, David Z. Pan, and Arman Roohi<br>
+                    <cite>IEEE Transactions on Computers</cite>, 2026
+                </li>
+            </ul>
+        </section>
+
+        <section aria-labelledby="projects">
+            <h2 id="projects">Independent Projects</h2>
+            <ul class="entries">
+                <li>
+                    <h3><a href="https://github.com/shayangerami/EvidenceEvalRAG">EvidenceEval: Evidence-Aware RAG Agent and Evaluation Framework</a></h3>
+                    <p>Built a LangGraph agent using local Qwen2.5, evidence verification, a hybrid retrieval retry, and abstention.
+                        Across 300 SciFact claims, the automated unsupported-answer rate fell from 37.7% for the semantic RAG baseline
+                        to 7.3% with the agent. The agent abstained on 58.0% of answerable claims versus 28.7% for the baseline.</p>
+                </li>
+                <li>
+                    <h3>CloudAlign: 3D Point-Cloud Registration</h3>
+                    <p>Combines FPFH descriptors, RANSAC alignment, and ICP refinement in Open3D. Pose recovery succeeded on 99%
+                        of 100 test pairs versus 69% for ICP alone, with a median CPU runtime of 0.151 seconds.</p>
+                </li>
+                <li>
+                    <h3><a href="https://github.com/shayangerami/DomainAdaptation">Deep Domain Adaptation for CT-to-X-Ray Classification</a></h3>
+                    <p>Compared fine-tuning, DANN, CORAL, and MMD with a RadImageNet-pretrained ResNet-50.
+                        The best configuration raised target X-ray test accuracy from 60.87% to 97.83% in the project evaluation.</p>
+                </li>
+                <li>
+                    <h3><a href="https://github.com/shayangerami/Multi-Branch-GTSRB">Multi-Branch Feature Fusion for Traffic Sign Recognition</a></h3>
+                    <p>Fused features from frozen edge, shape, and color backbones to reach 86% accuracy on GTSRB
+                        with 1.2 million trainable parameters.</p>
+                </li>
+            </ul>
+        </section>
+    </main>
 </body>
 </html>
